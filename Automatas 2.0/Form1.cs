@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -74,10 +75,10 @@ namespace Automatas_2._0
         public class Transition
         {
             public string StartState { get; private set; }
-            public char Token { get; private set; }
+            public string Token { get; private set; }
             public string EndState { get; private set; }
 
-            public Transition(string startState, char token, string endState)
+            public Transition(string startState, string token, string endState)
             {
                 StartState = startState;
                 Token = token;
@@ -97,16 +98,17 @@ namespace Automatas_2._0
 
         private void button2_Click(object sender, EventArgs e)
         {
-            List<string> Trans;
-
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            List<Transition> list = new List<Transition>();
+            
+            foreach (DataGridViewRow dr in dataGridView1.Rows)
             {
-                new Transition (row)
-                foreach (DataGridViewColumn column in dataGridView1.Columns)
-                {
-                    new Transition(column);
-                }
+                //I've assumed imaginary properties ColName and ColValue in MyItem class
+                list.Add(new Transition(Convert.ToString(dr.Cells[0].Value),
+                    Convert.ToString(dr.Cells[1].Value.ToString()), Convert.ToString(dr.Cells[2].Value)));
+
             }
+
+
 
         }
     }
