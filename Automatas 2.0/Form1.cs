@@ -97,11 +97,10 @@ namespace Automatas_2._0
             List<Transition> list = new List<Transition>();
 
             foreach (DataGridViewRow dr in dataGridView1.Rows)
-            {
-                //I've assumed imaginary properties ColName and ColValue in MyItem class
-                list.Add(new Transition(Convert.ToString(dr.Cells[0].Value),
-                    Convert.ToString(dr.Cells[1].Value.ToString()), Convert.ToString(dr.Cells[2].Value)));
+            { 
+                list.Add(new Transition(Convert.ToString(dr.Cells[0].Value), Convert.ToString(dr.Cells[1].Value), Convert.ToString(dr.Cells[2].Value)));
             }
+
         }
 
         public class DeterministicFSM
@@ -166,29 +165,28 @@ namespace Automatas_2._0
         public void Accepts()
         {
             string input = textBox1.Text;
-            var currentState = QO;
-            var steps = new StringBuilder();
-            foreach (var token in input.ToCharArray())
+            var currentestate = QO;
+            
+            var pasos = new StringBuilder();
+            foreach (var alfa in input.ToCharArray())
             {
-                var transition = Delta.Find(t => t.StartState == currentState &&
-                                                 t.Token == token.ToString());
-                if (transition == null)
+                var transicion = Delta.Find(t => t.StartState == currentestate && t.Token == alfabeto.ToString());
+                if (transicion == null)
                 {
                     MessageBox.Show("No transitions for current state and symbol");
-                    Console.WriteLine(steps);
+
                     return;
                 }
-                currentState = transition.EndState;
-                steps.Append(transition + "\n");
+                currentestate = transicion.EndState;
             }
-            if (F.Contains(currentState))
+            if (F.Contains(currentestate))
             {
-                Console.WriteLine("Accepted the input with steps:\n" + steps);
-                return;
+                MessageBox.Show("Accepted the input with steps:\n");
             }
-            MessageBox.Show("Stopped in state " + currentState +
-                                 " which is not a final state."+steps);
-            ;
+            MessageBox.Show("Stopped in state " + currentestate +
+                        " which is not a final state.");
+            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -201,8 +199,6 @@ namespace Automatas_2._0
             List<string> f = new List<string>();
             string aceptados = checkedFinal.CheckedItems.ToString();
             f.Add(aceptados);
-           
-
 
         }
 
@@ -240,7 +236,7 @@ namespace Automatas_2._0
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            Accepts();
         }
     }
 }
