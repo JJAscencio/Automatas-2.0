@@ -1,0 +1,10 @@
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\bin\Debug\Automatas 2.0.exe.config
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\bin\Debug\Automatas 2.0.exe
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\bin\Debug\Automatas 2.0.pdb
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\obj\Debug\Automatas 2.0.csprojAssemblyReference.cache
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\obj\Debug\Automatas_2._0.Form1.resources
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\obj\Debug\Automatas_2._0.Properties.Resources.resources
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\obj\Debug\Automatas 2.0.csproj.GenerateResource.cache
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\obj\Debug\Automatas 2.0.csproj.CoreCompileInputs.cache
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\obj\Debug\Automatas 2.0.exe
+C:\Users\jonat\source\repos\Automatas 2.0\Automatas 2.0\obj\Debug\Automatas 2.0.pdb
