@@ -20,7 +20,7 @@ namespace Automatas_2._0
         List<Transition> Delta;
         List<string> F;
         public string QO = "q0";
-        
+
 
 
         public Form1()
@@ -40,14 +40,14 @@ namespace Automatas_2._0
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-           
+
+
         }
 
         private void inputBtn_Click(object sender, EventArgs e)
         {
             var num = 0;
-            
+
             int.TryParse(numEstados.Text, out num);
             if (num > 0)
             {
@@ -95,7 +95,7 @@ namespace Automatas_2._0
         private void button2_Click(object sender, EventArgs e)
         {
             List<Transition> list = new List<Transition>();
-            
+
             foreach (DataGridViewRow dr in dataGridView1.Rows)
             {
                 //I've assumed imaginary properties ColName and ColValue in MyItem class
@@ -163,8 +163,46 @@ namespace Automatas_2._0
             }
         }
 
-       
+        public void Accepts(string input)
+        {
+            var currentState = Q0;
+            var steps = new StringBuilder();
+            foreach (var token in input.ToCharArray())
+            {
+                var transition = Delta.Find(t => t.StartState == currentState &&
+                                                 t.Token == token.ToString());
+                if (transition == null)
+                {
+                    MessageBox.Show("No transitions for current state and symbol");
+                    Console.WriteLine(steps);
+                    return;
+                }
+                currentState = transition.EndState;
+                steps.Append(transition + "\n");
+            }
+            if (F.Contains(currentState))
+            {
+                Console.WriteLine("Accepted the input with steps:\n" + steps);
+                return;
+            }
+            Console.WriteLine("Stopped in state " + currentState +
+                                 " which is not a final state.");
+            Console.WriteLine(steps);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<string> f = new List<string>();
+            string aceptados = checkedFinal.CheckedItems.ToString();
+            f.Add(aceptados);
+
+            
+        }
+
     }
-
-
 }
