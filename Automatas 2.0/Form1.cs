@@ -90,10 +90,6 @@ namespace Automatas_2._0
                 return string.Format("({0},{1} -> {2})", StartState, Token, EndState);
             }
 
-
-
-
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -105,11 +101,70 @@ namespace Automatas_2._0
                 //I've assumed imaginary properties ColName and ColValue in MyItem class
                 list.Add(new Transition(Convert.ToString(dr.Cells[0].Value),
                     Convert.ToString(dr.Cells[1].Value.ToString()), Convert.ToString(dr.Cells[2].Value)));
+            }
+        }
 
+        public class DeterministicFSM
+        {
+            private readonly List<string> Q = new List<string>();
+            private readonly List<string> Alfabeto = new List<string>();
+            private readonly List<Transition> Delta = new List<Transition>();
+            private string Q0;
+            private readonly List<string> F = new List<string>();
+
+            public DeterministicFSM(IEnumerable<string> q, IEnumerable<string> sigma,
+                                    IEnumerable<Transition> delta, string q0,
+                                    IEnumerable<string> f)
+            {
+                Q = q.ToList();
+                Alfabeto = sigma.ToList();
+                AddTransitions(Delta);
+                AddInitialState(Q0);
+                AddFinalStates(F);
             }
 
+            private void AddTransitions(IEnumerable<Transition> transitions)
+            {
+                foreach (var transition in transitions.Where(ValidTransition))
+                {
+                    Delta.Add(transition);
+                }
+            }
 
+            private bool ValidTransition(Transition transition)
+            {
+                return Q.Contains(transition.StartState) &&
+                        Q.Contains(transition.EndState) &&
+                        Alfabeto.Contains(transition.Token) &&
+                        !TransitionAlreadyDefined(transition);
+            }
 
+            private bool TransitionAlreadyDefined(Transition transition)
+            {
+                return Delta.Any(t => t.StartState == transition.StartState &&
+                                      t.Token == transition.Token);
+            }
+
+            private void AddInitialState(string q0)
+            {
+                if (Q.Contains(q0))
+                {
+                    Q0 = q0;
+                }
+            }
+
+            private void AddFinalStates(IEnumerable<string> finalStates)
+            {
+                foreach (var finalState in finalStates.Where(
+                           finalState => Q.Contains(finalState)))
+                {
+                    F.Add(finalState);
+                }
+            }
         }
+
+       
     }
+
+
 }
