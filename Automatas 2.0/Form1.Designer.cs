@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.automataGB = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.transactionsBtn = new System.Windows.Forms.Button();
             this.checkedFinal = new System.Windows.Forms.CheckedListBox();
             this.estadoInicial = new System.Windows.Forms.Label();
@@ -44,14 +46,21 @@
             this.alfabetoLBL = new System.Windows.Forms.Label();
             this.numEstadosLBL = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.automataGB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // automataGB
             // 
+            this.automataGB.Controls.Add(this.textBox1);
+            this.automataGB.Controls.Add(this.button5);
+            this.automataGB.Controls.Add(this.button4);
             this.automataGB.Controls.Add(this.button1);
+            this.automataGB.Controls.Add(this.button2);
             this.automataGB.Controls.Add(this.transactionsBtn);
             this.automataGB.Controls.Add(this.checkedFinal);
             this.automataGB.Controls.Add(this.estadoInicial);
@@ -63,19 +72,39 @@
             this.automataGB.Controls.Add(this.numEstados);
             this.automataGB.Controls.Add(this.alfabetoLBL);
             this.automataGB.Controls.Add(this.numEstadosLBL);
-            this.automataGB.Location = new System.Drawing.Point(32, 65);
-            this.automataGB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.automataGB.Location = new System.Drawing.Point(375, 57);
+            this.automataGB.Margin = new System.Windows.Forms.Padding(4);
             this.automataGB.Name = "automataGB";
-            this.automataGB.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.automataGB.Padding = new System.Windows.Forms.Padding(4);
             this.automataGB.Size = new System.Drawing.Size(701, 554);
             this.automataGB.TabIndex = 0;
             this.automataGB.TabStop = false;
             this.automataGB.Text = "Añadir automata";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(572, 301);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Seleccionar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(29, 459);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Dibujar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
             // transactionsBtn
             // 
             this.transactionsBtn.Location = new System.Drawing.Point(29, 382);
-            this.transactionsBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.transactionsBtn.Margin = new System.Windows.Forms.Padding(4);
             this.transactionsBtn.Name = "transactionsBtn";
             this.transactionsBtn.Size = new System.Drawing.Size(460, 28);
             this.transactionsBtn.TabIndex = 11;
@@ -87,7 +116,7 @@
             // 
             this.checkedFinal.FormattingEnabled = true;
             this.checkedFinal.Location = new System.Drawing.Point(533, 188);
-            this.checkedFinal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkedFinal.Margin = new System.Windows.Forms.Padding(4);
             this.checkedFinal.Name = "checkedFinal";
             this.checkedFinal.Size = new System.Drawing.Size(159, 106);
             this.checkedFinal.TabIndex = 9;
@@ -132,7 +161,7 @@
             this.colAlfabeto,
             this.colDestino});
             this.dataGridView1.Location = new System.Drawing.Point(20, 188);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(469, 185);
             this.dataGridView1.TabIndex = 5;
@@ -156,7 +185,7 @@
             // inputBtn
             // 
             this.inputBtn.Location = new System.Drawing.Point(197, 134);
-            this.inputBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.inputBtn.Margin = new System.Windows.Forms.Padding(4);
             this.inputBtn.Name = "inputBtn";
             this.inputBtn.Size = new System.Drawing.Size(100, 28);
             this.inputBtn.TabIndex = 4;
@@ -167,7 +196,7 @@
             // alfabetoTb
             // 
             this.alfabetoTb.Location = new System.Drawing.Point(20, 138);
-            this.alfabetoTb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.alfabetoTb.Margin = new System.Windows.Forms.Padding(4);
             this.alfabetoTb.Name = "alfabetoTb";
             this.alfabetoTb.Size = new System.Drawing.Size(132, 22);
             this.alfabetoTb.TabIndex = 3;
@@ -175,7 +204,7 @@
             // numEstados
             // 
             this.numEstados.Location = new System.Drawing.Point(20, 79);
-            this.numEstados.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numEstados.Margin = new System.Windows.Forms.Padding(4);
             this.numEstados.Name = "numEstados";
             this.numEstados.Size = new System.Drawing.Size(132, 22);
             this.numEstados.TabIndex = 2;
@@ -200,23 +229,49 @@
             this.numEstadosLBL.TabIndex = 0;
             this.numEstadosLBL.Text = "Numero de estados";
             // 
-            // button1
+            // button3
             // 
-            this.button1.Location = new System.Drawing.Point(572, 301);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Seleccionar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button3.Location = new System.Drawing.Point(1240, 528);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(8, 8);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(37, 467);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(521, 490);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(114, 23);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "Validar cadena";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(505, 447);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(154, 22);
+            this.textBox1.TabIndex = 15;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1423, 683);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.automataGB);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -246,6 +301,11 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn colDestino;
         private System.Windows.Forms.Button transactionsBtn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }
 

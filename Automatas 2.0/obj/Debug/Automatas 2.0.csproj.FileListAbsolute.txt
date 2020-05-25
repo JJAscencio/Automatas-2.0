@@ -17,3 +17,4 @@ C:\Users\sergi\Desktop\Automatas-2.0\Automatas 2.0\obj\Debug\Automatas_2._0.Prop
 C:\Users\sergi\Desktop\Automatas-2.0\Automatas 2.0\obj\Debug\Automatas 2.0.csproj.GenerateResource.Cache
 C:\Users\sergi\Desktop\Automatas-2.0\Automatas 2.0\bin\Debug\Automatas 2.0.exe
 C:\Users\sergi\Desktop\Automatas-2.0\Automatas 2.0\bin\Debug\Automatas 2.0.pdb
+C:\Users\sergi\Desktop\Automatas-2.0\Automatas 2.0\obj\Debug\Automatas_2._0.Dibujar.resources

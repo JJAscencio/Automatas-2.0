@@ -20,7 +20,7 @@ namespace Automatas_2._0
         List<Transition> Delta;
         List<string> F;
         public string QO = "q0";
-
+        private Dibujar dib;
 
 
         public Form1()
@@ -163,9 +163,10 @@ namespace Automatas_2._0
             }
         }
 
-        public void Accepts(string input)
+        public void Accepts()
         {
-            var currentState = Q0;
+            string input = textBox1.Text;
+            var currentState = QO;
             var steps = new StringBuilder();
             foreach (var token in input.ToCharArray())
             {
@@ -185,9 +186,9 @@ namespace Automatas_2._0
                 Console.WriteLine("Accepted the input with steps:\n" + steps);
                 return;
             }
-            Console.WriteLine("Stopped in state " + currentState +
-                                 " which is not a final state.");
-            Console.WriteLine(steps);
+            MessageBox.Show("Stopped in state " + currentState +
+                                 " which is not a final state."+steps);
+            ;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -200,9 +201,46 @@ namespace Automatas_2._0
             List<string> f = new List<string>();
             string aceptados = checkedFinal.CheckedItems.ToString();
             f.Add(aceptados);
+           
 
-            
+
         }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            Dibujar dib = new Dibujar();
+            int y = 360;
+            int x = 290;
+            int width = 50;
+            int height = 50;
+            dib.Visible = true;
+            int estados = int.Parse(numEstados.Text);
+
+            for (int i = 0; i < estados; i++)
+            {
+                if (estados > 8)
+                {
+                    MessageBox.Show("La cantidad de estados se alcanzo");
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Graphics circulos;
+                    Graphics lineas;
+                    Pen lapiz = new Pen(Color.Red);
+                    circulos = dib.CreateGraphics();
+                    lineas = dib.CreateGraphics();
+                    circulos.DrawEllipse(lapiz, y, x, width, height);
+                    //lineas.DrawLine(lapiz, y, x, width, height);
+                    y += 117;
+                }
+            }
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
